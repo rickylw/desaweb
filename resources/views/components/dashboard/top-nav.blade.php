@@ -11,22 +11,22 @@
 
           <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-                <li><a href="#">Sejarah</a></li>
-                <li><a href="#">Wilayah Geografis</a></li>
+                <li><a href="{{route('profil.sejarah')}}">Sejarah</a></li>
+                <li><a href="{{route('profil.wilayah-geografis')}}">Wilayah Geografis</a></li>
             </ul>
           </li>
 
           <li class="dropdown"><a href="#"><span>Organisasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="about.html">Struktur</a></li>
-              <li><a href="team.html">Visi Misi</a></li>
+              <li><a href="{{route('organisasi.struktur-organisasi')}}">Struktur Organisasi</a></li>
+              <li><a href="{{route('organisasi.visi-misi')}}">Visi Misi</a></li>
             </ul>
           </li>
 
           <li class="dropdown"><a href="#"><span>Potensi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="about.html">Kependudukan</a></li>
-              <li><a href="team.html">Anggaran</a></li>
+              <li><a href="{{route('potensi.kependudukan')}}">Kependudukan</a></li>
+              <li><a href="{{route('potensi.anggaran')}}">Anggaran</a></li>
               <li><a href="team.html">Produk Unggulan</a></li>
             </ul>
           </li>

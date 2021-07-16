@@ -46,20 +46,38 @@
                     </div>
 
                     <hr>
+                    
+                    <div>
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item"><h6>Kolom Komentar</h6></li>
+                            <li class="list-inline-item">
+                                <a href=""><i class="bi bi-heart" id="icon-like"></i></a>
+                            </li>
+                        </ul>
+                        <form action="" method="POST">
+                            <textarea rows="4" class="form-control" id="komentar"></textarea>
+                            <div class="text-end">                                
+                                <button type="submit" class="btn btn-primary mt-2">Kirim</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <hr>
 
                     <div>
                         <h6>Komentar (12)</h6>
-                        <div class="card">
-                            <div class="row m-2">
-                                <div class="col-sm-2">
-                                    <img src="{{asset('assets/img/slide/slide-1.jpg')}}" class="rounded-circle img-fluid" width="100px" height="100px" alt="">
-                                </div>
-                                <div class="col-sm-5" style="text-align: left">
-                                    <p class="mb-0"><small><b>John Smith</b></small></p>
-                                    <p style="font-size: 12px"><small>21 Juni 2021</small></p>
-                                </div>
+                        @for($i = 0; $i < 3; $i++)
+                            <div class="card px-3 py-2 my-2">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><img src="{{asset('assets/img/kependudukan/kid.png')}}" class="rounded-circle img-fluid" width="100px" height="100px" alt=""></li>
+                                    <li class="list-inline-item mx-2">
+                                        <p class="mb-0"><small><b>John Smith</b></small></p>
+                                        <p style="font-size: 12px"><small>21 Juni 2021</small></p>
+                                    </li>
+                                </ul>
+                                <p class="isi-komentar">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It hasLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                             </div>
-                        </div>
+                        @endfor
                     </div>
                 </div>
     

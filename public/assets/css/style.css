@@ -2239,8 +2239,17 @@ section {
   text-align: justify;
 }
 
+.isi-komentar{
+  text-align: justify;
+  font-size: 12px;
+}
+
 #item-description {
   color: #BBBBBB;
+}
+
+#icon-like {
+  color: #d13232;
 }
 
 /*
@@ -2251,4 +2260,23 @@ section {
   border-radius:50%;
   width:50px;
   height:50px;
+}
+
+/*
+-- Kependudukan
+*/
+
+.sub-title {
+  text-align: center;
+}
+
+.total-penduduk-circle {
+  height: 150px; 
+  width: 150px; 
+  background-color:#00b035;
+  position: relative;
+}
+
+.total-penduduk-circle div h5{
+  color: white;
 }
