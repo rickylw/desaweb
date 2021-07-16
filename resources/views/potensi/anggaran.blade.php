@@ -83,6 +83,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="card text-white col">
+                        <div class="card-header bg-primary">
+                            <div class="my-auto"><b>Belanja Desa</b></div>
+                        </div>
+                        <div class="card-body text-dark">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div id="chartPieBelanjaDesa"></div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div id="chartLineBelanjaDesa"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

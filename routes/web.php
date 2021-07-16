@@ -24,3 +24,5 @@ Route::get('/organisasi/struktur-organisasi', [App\Http\Controllers\BeritaContro
 Route::get('/organisasi/visi-misi', [App\Http\Controllers\BeritaController::class, 'tampilVisiMisi'])->name('organisasi.visi-misi');
 Route::get('/potensi/kependudukan', [App\Http\Controllers\BeritaController::class, 'tampilKependudukan'])->name('potensi.kependudukan');
 Route::get('/potensi/anggaran', [App\Http\Controllers\BeritaController::class, 'tampilAnggaran'])->name('potensi.anggaran');
+Route::get('/potensi/produk-unggulan', [App\Http\Controllers\BeritaController::class, 'tampilProdukUnggulan'])->name('potensi.produk-unggulan');
+Route::get('/informasi-lain', [App\Http\Controllers\BeritaController::class, 'tampilInformasiLain'])->name('informasi-lain');

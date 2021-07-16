@@ -33,4 +33,12 @@ class BeritaController extends Controller
     public function tampilAnggaran(){
         return view('potensi.anggaran');
     }
+
+    public function tampilProdukUnggulan(){
+        return view('potensi.produk-unggulan');
+    }
+
+    public function tampilInformasiLain(){
+        return view('informasi-lain.index');
+    }
 }

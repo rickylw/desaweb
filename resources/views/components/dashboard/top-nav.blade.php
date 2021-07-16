@@ -27,7 +27,7 @@
             <ul>
               <li><a href="{{route('potensi.kependudukan')}}">Kependudukan</a></li>
               <li><a href="{{route('potensi.anggaran')}}">Anggaran</a></li>
-              <li><a href="team.html">Produk Unggulan</a></li>
+              <li><a href="{{route('potensi.produk-unggulan')}}">Produk Unggulan</a></li>
             </ul>
           </li>
 
@@ -38,11 +38,7 @@
             </ul>
           </li>
 
-          <li class="dropdown"><a href="#"><span>Informasi Lain</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="about.html">Perikanan</a></li>
-              <li><a href="team.html">Pertanian</a></li>
-            </ul>
+          <li class="dropdown"><a href="{{route('informasi-lain')}}"><span>Informasi Lain</span></a>
           </li>
 
           <li><a href="index.html">Login</a></li>
