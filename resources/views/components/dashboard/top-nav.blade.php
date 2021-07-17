@@ -33,8 +33,8 @@
 
           <li class="dropdown"><a href="#"><span>Umum</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="about.html">Buku Tamu</a></li>
-              <li><a href="team.html">Galeri</a></li>
+              <li><a href="about.html">Register</a></li>
+              <li><a href="{{route('galeri')}}">Galeri</a></li>
             </ul>
           </li>
 

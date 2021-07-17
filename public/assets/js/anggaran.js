@@ -82,7 +82,7 @@ function chartPieBelanjaDesa() {
     var options = {
         height:500,
     chartArea: { 'width': '100%', 'height': '70%' },
-    legend: {'position':'top','alignment':'center', 'maxLines':3}
+    legend: {'position':'top','alignment':'center', maxLines: 3}
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('chartPieBelanjaDesa'));

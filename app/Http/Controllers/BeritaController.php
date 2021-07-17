@@ -10,14 +10,6 @@ class BeritaController extends Controller
         return view('beranda.detail-berita');
     }
 
-    public function tampilSejarah(){
-        return view('profil.sejarah');
-    }
-
-    public function tampilWilayahGeografis(){
-        return view('profil.wilayah-geografis');
-    }
-
     public function tampilStrukturOrganisasi(){
         return view('organisasi.struktur-organisasi');
     }
@@ -32,6 +24,14 @@ class BeritaController extends Controller
 
     public function tampilAnggaran(){
         return view('potensi.anggaran');
+    }
+
+    public function tampilGaleri(){
+        return view('galeri.index');
+    }
+
+    public function tampilDetailGaleri(){
+        return view('galeri.detail-galeri');
     }
 
     public function tampilProdukUnggulan(){

@@ -68,7 +68,7 @@
                         </div>
                     </div>
 
-                    <div class="card text-white col">
+                    <div class="card text-white col mb-4">
                         <div class="card-header bg-primary">
                             <div class="my-auto"><b>Pendapatan Desa</b></div>
                         </div>
@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-                    <div class="card text-white col">
+                    <div class="card text-white col mb-4">
                         <div class="card-header bg-primary">
                             <div class="my-auto"><b>Belanja Desa</b></div>
                         </div>

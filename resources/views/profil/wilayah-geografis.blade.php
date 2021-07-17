@@ -27,8 +27,11 @@
                     <div class="underline-title">
                         <h3>Wilayah Geografis</h3>
                     </div>
-                    <img src="{{asset('assets/img/slide/slide-3.jpg')}}" class="img-fluid center-image mb-4" alt="...">
-                    <div class="mb-3">
+                    <img src="{{asset($profil->gambar_geografis)}}" class="img-fluid center-image mb-4" alt="...">
+                    <div class="isi-berita">
+                        <?php echo $profil->geografis ?>                
+                    </div>
+                    {{-- <div class="mb-3">
                         <h6><b>Profil Desa</b></h6>
                         <hr>
                         <div class="row">
@@ -75,7 +78,7 @@
                             <p class="col-sm-4 mb-1"><small>Topografi Wilayah</small></p>
                             <p class="col-sm-8 mb-1"><small>Dataran</small></p>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
     
                 <div class="col-lg-4 pt-4 pt-lg-0" data-aos="fade-left">
