@@ -75,6 +75,7 @@
                         <div class="card-body text-dark">
                             <div class="row">
                                 <div class="col-sm-4">
+                                    <input type="hidden" id="kategoriAnggaran" value='<?php echo json_encode($kategoriAnggaran) ?>'>
                                     <div id="chartPiePendapatanDesa"></div>
                                 </div>
                                 <div class="col-sm-8">

@@ -10,22 +10,6 @@ class BeritaController extends Controller
         return view('beranda.detail-berita');
     }
 
-    public function tampilStrukturOrganisasi(){
-        return view('organisasi.struktur-organisasi');
-    }
-
-    public function tampilVisiMisi(){
-        return view('organisasi.visi-misi');
-    }
-
-    public function tampilKependudukan(){
-        return view('potensi.kependudukan');
-    }
-
-    public function tampilAnggaran(){
-        return view('potensi.anggaran');
-    }
-
     public function tampilGaleri(){
         return view('galeri.index');
     }

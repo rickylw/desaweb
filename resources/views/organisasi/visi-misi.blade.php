@@ -27,7 +27,10 @@
                     <div class="underline-title">
                         <h3>Visi Misi</h3>
                     </div>
-                    <img src="{{asset('assets/img/slide/slide-3.jpg')}}" class="img-fluid center-image mb-4" alt="...">
+                    <img src="{{asset($organisasi->gambar_visi_misi)}}" class="img-fluid center-image mb-4" alt="...">
+                    <div class="isi-berita">
+                        <?php echo $organisasi->visi_misi ?>                
+                    </div>
                 </div>
     
                 <div class="col-lg-4 pt-4 pt-lg-0" data-aos="fade-left">

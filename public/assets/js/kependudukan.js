@@ -11,10 +11,12 @@ $(window).resize(function(){
 });
 // Draw the chart and set the chart values
 function chartBerdasarkanGender() {
+    var totalLakiLaki = parseInt($('#totalLakiLaki').val());
+    var totalPerempuan = parseInt($('#totalPerempuan').val());
     var data = google.visualization.arrayToDataTable([
         ['Gender', 'Persentase', { role: 'style' }],
-        ['Perempuan', 60, '#f54e42'],            // RGB value
-        ['Laki-Laki', 40, '#405cf7'],            // English color name
+        ['Perempuan', totalPerempuan, '#f54e42'],        
+        ['Laki-Laki', totalLakiLaki, '#405cf7'],   
      ]);
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1,
@@ -32,22 +34,21 @@ function chartBerdasarkanGender() {
         legend: { position: "none" },
     };
                        
-
-  // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.BarChart(document.getElementById('chartBerdasarkanGender'));
   chart.draw(data, options);
 }
 
 function chartBerdasarkanUmur() {
+    var kependudukan = JSON.parse($('#kependudukan').val());
     var data = google.visualization.arrayToDataTable([
         ['Umur', 'Laki-Laki', 'Perempuan'],
-        ['0-15', 1000, 400],
-        ['15-25', 1170, 460],
-        ['25-35', 660, 1120],
-        ['35-45', 1030, 540],
-        ['45-55', 1030, 540],
-        ['55-65', 1030, 540],
-        ['>65', 1030, 540]
+        ['0-15', kependudukan['laki_15'], kependudukan['perempuan_15']],
+        ['15-25', kependudukan['laki_25'], kependudukan['perempuan_25']],
+        ['25-35', kependudukan['laki_35'], kependudukan['perempuan_35']],
+        ['35-45', kependudukan['laki_45'], kependudukan['perempuan_45']],
+        ['45-55', kependudukan['laki_55'], kependudukan['perempuan_55']],
+        ['55-65', kependudukan['laki_65'], kependudukan['perempuan_65']],
+        ['>65', kependudukan['laki_atas'], kependudukan['perempuan_atas']]
       ]);
 
     var chart = new google.charts.Bar(document.getElementById('chartBerdasarkanUmur'));
@@ -56,14 +57,15 @@ function chartBerdasarkanUmur() {
 }
 
 function chartBerdasarkanPendidikan() {
+    var pendidikan = JSON.parse($('#pendidikan').val());
     var data = google.visualization.arrayToDataTable([
         ['Pendidikan', 'Laki-Laki', 'Perempuan'],
-        ['Belum Sekolah', 1000, 400],
-        ['SD', 1170, 460],
-        ['SMP', 660, 1120],
-        ['SMA', 1030, 540],
-        ['Perguruan Tinggi', 1030, 540],
-        ['Tidak Diketahui', 1030, 540]
+        ['Belum Sekolah', pendidikan['laki_belum_sekolah'], pendidikan['perempuan_belum_sekolah']],
+        ['SD', pendidikan['laki_tamat_sd'], pendidikan['perempuan_tamat_sd']],
+        ['SMP', pendidikan['laki_tamat_smp'], pendidikan['perempuan_tamat_smp']],
+        ['SMA', pendidikan['laki_tamat_sma'], pendidikan['perempuan_tamat_sma']],
+        ['Perguruan Tinggi', pendidikan['laki_tamat_pt'], pendidikan['perempuan_tamat_pt']],
+        ['Tidak Diketahui', pendidikan['laki_tidak_diketahui'], pendidikan['perempuan_tidak_diketahui']]
       ]);
 
     var chart = new google.charts.Bar(document.getElementById('chartBerdasarkanPendidikan'));

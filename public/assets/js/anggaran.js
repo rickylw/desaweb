@@ -13,6 +13,13 @@ $(window).resize(function(){
 });
 
 function chartPiePendapatanDesa() {
+    var kategoriAnggaran = JSON.parse($('#kategoriAnggaran').val());
+    var task = [];
+    kategoriAnggaran.forEach((element) => {
+        var tmp = [];
+        task.push(element["nama"])
+    });
+    console.log(task);
     var data = google.visualization.arrayToDataTable([
         ['Pendapatan Desa', 'Rupiah'],
         ['Dana Desa',     90000000],

@@ -30,7 +30,7 @@
                             <h5 class="sub-title mb-3">Berdasarkan Usia</h5>
                             <div class="row mx-2 my-2">
                                 <div class="col-md-3 my-auto text-center">
-                                    <p class="mb-0">30.00%</p>
+                                    <p class="mb-0">{{$dataPendudukUsia["dibawah15tahun"]}} %</p>
                                 </div>
                                 <div class="col-md-3 my-auto text-center">
                                     <img src="{{asset('assets/img/kependudukan/kid.png')}}" class="rounded-circle img-responsive" width="100px" height="100px" alt="">
@@ -41,7 +41,7 @@
                             </div>
                             <div class="row mx-2 my-2">
                                 <div class="col-md-3 my-auto text-center">
-                                    <p class="mb-0">40.00%</p>
+                                    <p class="mb-0">{{$dataPendudukUsia["diantara"]}} %</p>
                                 </div>
                                 <div class="col-md-3 my-auto text-center">
                                     <img src="{{asset('assets/img/kependudukan/parent.png')}}" class="rounded-circle img-responsive" width="100px" height="100px" alt="">
@@ -52,7 +52,7 @@
                             </div>
                             <div class="row mx-2 my-2">
                                 <div class="col-md-3 my-auto text-center">
-                                    <p class="mb-0">30.00%</p>
+                                    <p class="mb-0">{{$dataPendudukUsia["diatas65tahun"]}} %</p>
                                 </div>
                                 <div class="col-md-3 my-auto text-center">
                                     <img src="{{asset('assets/img/kependudukan/grandparent.png')}}" class="rounded-circle img-responsive" width="100px" height="100px" alt="">
@@ -65,11 +65,13 @@
                         <div class="col-sm-4 mb-4">
                             <h5 class="sub-title mb-3">Total</h5>
                             <div class="rounded-circle total-penduduk-circle m-auto text-center d-flex justify-content-center">
-                                <div class="my-auto"><h5>4000 Jiwa</h5></div>
+                                <div class="my-auto"><h5>{{$dataPendudukUsia["totalPenduduk"]}} Jiwa</h5></div>
                             </div>
                         </div>
                         <div class="col-sm-4 mb-2">
                             <h5 class="sub-title mb-3">Berdasarkan Gender</h5>
+                            <input type="hidden" id="totalLakiLaki" value="{{$dataPendudukUsia['totalLakiLaki']}}" >
+                            <input type="hidden" id="totalPerempuan" value="{{$dataPendudukUsia['totalPerempuan']}}" >
                             <div id="chartBerdasarkanGender"></div>
                         </div>
                     </div>
@@ -79,6 +81,7 @@
                     <hr>
                     <div class="row">
                         <div class="col-sm-8 p-4">
+                            <input type="hidden" id="kependudukan" value='<?php echo json_encode($kependudukan) ?>'>
                             <div id="chartBerdasarkanUmur"></div>
                         </div>
                         <div class="col-sm-4 my-auto">
@@ -87,7 +90,7 @@
                                     <img src="{{asset('assets/img/kependudukan/strong.png')}}" class="rounded-circle img-responsive" width="500px" height="100px" alt="">
                                 </div>
                                 <div class="col-sm-8">
-                                    <p>40.00 % berada di usia <b>produktif</b></p>
+                                    <p>{{$dataPendudukUsia["totalProduktif"]}} % berada di usia <b>produktif</b></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -95,7 +98,7 @@
                                     <img src="{{asset('assets/img/kependudukan/weak.png')}}" class="rounded-circle img-responsive" width="500px" height="100px" alt="">
                                 </div>
                                 <div class="col-sm-8">
-                                    <p>60.00 % berada di usia <b>tidak produktif</b></p>
+                                    <p>{{$dataPendudukUsia["totalTidakProduktif"]}} % berada di usia <b>tidak produktif</b></p>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +109,8 @@
                     <hr>
                     <div class="row py-4">
                         <div class="col-md-2 col-sm-0 col-lg-3"></div>
-                        <div class="col-md-8 col-sm-12 col-lg-6">
+                        <div class="col-md-8 col-sm-12 col-lg-6">                            
+                            <input type="hidden" id="pendidikan" value='<?php echo json_encode($pendidikan) ?>'>
                             <div id="chartBerdasarkanPendidikan"></div>
                         </div>
                         <div class="col-sm-2 col-sm-0 col-lg-3"></div>
