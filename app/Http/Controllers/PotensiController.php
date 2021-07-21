@@ -7,6 +7,8 @@ use App\Models\Kependudukan;
 use App\Models\Pendidikan;
 use App\Models\KategoriAnggaran;
 use App\Models\KategoriBelanjaDesa;
+use App\Models\Anggaran;
+use App\Models\DetailAnggaran;
 
 class PotensiController extends Controller
 {
@@ -42,6 +44,8 @@ class PotensiController extends Controller
     public function tampilAnggaran(){
         $kategoriAnggaran = KategoriAnggaran::all();
         $kategoriBelanjaDesa = KategoriBelanjaDesa::all();
-        return view('potensi.anggaran', ['kategoriAnggaran' => $kategoriAnggaran, 'kategoriBelanjaDeas' => $kategoriBelanjaDesa]);
+        $anggaran = Anggaran::all();
+        $detailAnggaran = DetailAnggaran::all();
+        return view('potensi.anggaran', ['kategoriAnggaran' => $kategoriAnggaran, 'kategoriBelanjaDesa' => $kategoriBelanjaDesa, 'anggaran' => $anggaran, 'detailAnggaran' => $detailAnggaran]);
     }
 }

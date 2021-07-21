@@ -13,18 +13,11 @@ $(window).resize(function(){
 });
 
 function chartPiePendapatanDesa() {
-    var kategoriAnggaran = JSON.parse($('#kategoriAnggaran').val());
-    var task = [];
-    kategoriAnggaran.forEach((element) => {
-        var tmp = [];
-        task.push(element["nama"])
-    });
-    console.log(task);
     var data = google.visualization.arrayToDataTable([
         ['Pendapatan Desa', 'Rupiah'],
-        ['Dana Desa',     90000000],
-        ['Alokasi Dana Desa',      30000000],
-        ['Bagi Hasil Pajak',  20000000]
+        ['D',     90000000],
+        ['A',      30000000],
+        ['B',  20000000]
       ]);
 
     var options = {
@@ -40,40 +33,63 @@ function chartPiePendapatanDesa() {
 }
 
 function chartLinePendapatanDesa() {
-    var data = google.visualization.arrayToDataTable([
-        ['Bulan', 'Dana Desa', 'Alokasi Dana Desa', 'Bagi Hasil Pajak'],
-        ['Jan',  37.8, 80.8, 41.8],
-        ['Feb',  30.9, 69.5, 32.4],
-        ['Mar',  25.4,   57, 25.7],
-        ['Apr',  11.7, 18.8, 10.5],
-        ['Mei',  11.9, 17.6, 10.4],
-        ['Jun',   8.8, 13.6,  7.7],
-        ['Jul',   7.6, 12.3,  9.6],
-        ['Aug',  12.3, 29.2, 10.6],
-        ['Sep',  16.9, 42.9, 14.8],
-        ['Okt', 12.8, 30.9, 11.6],
-        ['Nov',  5.3,  7.9,  4.7],
-        ['Des',  6.6,  8.4,  5.2]
+    var bulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+    var tahunAnggaran = document.getElementById("btnTahunAnggaran").innerText;
+    var kategoriAnggaran = JSON.parse($('#kategoriAnggaran').val());
+    var detailAnggaran = JSON.parse($('#detailAnggaran').val());
+    var filteredDetailAnggaran = detailAnggaran.filter(detail => detail.tahun_anggaran == tahunAnggaran);
+    
+    var data = [];
+    var kategori = ['Bulan'];
+
+    kategoriAnggaran.forEach((element) => {
+        kategori.push(element['nama']);
+    });
+
+    for(let i = 0; i < bulan.length; i++){
+        var filterByMonth = filteredDetailAnggaran.filter(detail => detail.bulan == i+1);
+        var tmp = [];
+        tmp.push(bulan[i])
+        for(let j = 0; j < kategoriAnggaran.length; j++){
+            var anggaranByKategori = filterByMonth.filter(detail => detail.id_kategori_anggaran == kategoriAnggaran[j]['id']);
+            if(anggaranByKategori.length > 0){
+                tmp.push(parseInt(anggaranByKategori[0]['jumlah']));
+            }
+            else{
+                tmp.push(0);
+            }
+        }
+        data.push(tmp);
+    }
+
+    var dataChart = google.visualization.arrayToDataTable([
+        kategori,
+        data[0]
       ]);
 
-      var options = {
-          height: 500,
-        legend: { position: 'bottom' },
-        chartArea: { 'width': '90%', 'height': '80%' },
-        hAxis: {
+    data.forEach((value, index) => {
+    if (index < 1) return;
+    dataChart.addRow(value);
+    });
+
+    var options = {
+        height: 500,
+    legend: { position: 'bottom' },
+    chartArea: { 'width': '90%', 'height': '80%' },
+    hAxis: {
+        baseline: 0,
+        gridlines: {
+            count: 6
+        },
+    },          
+    vAxis: {
             baseline: 0,
-            gridlines: {
-                count: 6
-            },
-        },          
-        vAxis: {
-                baseline: 0,
-            },
-        };
+        },
+    };
 
-      var chart = new google.visualization.LineChart(document.getElementById('chartLinePendapatanDesa'));
+    var chart = new google.visualization.LineChart(document.getElementById('chartLinePendapatanDesa'));
 
-        chart.draw(data, options);
+    chart.draw(dataChart, options);
 }
 
 function chartPieBelanjaDesa() {

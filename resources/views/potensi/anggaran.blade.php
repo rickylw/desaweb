@@ -28,13 +28,13 @@
                             <div class="my-auto"><b>APBD Tahun Anggaran</b></div>
 
                             <div class="dropdown">
-                                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                    2021
+                                <button class="btn btn-light dropdown-toggle" type="button" id="btnTahunAnggaran" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{$anggaran[count($anggaran)-1]->tahun_anggaran}}
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">2019</a></li>
-                                    <li><a class="dropdown-item" href="#">2020</a></li>
-                                    <li><a class="dropdown-item" href="#">2021</a></li>
+                                <ul class="dropdown-menu" aria-labelledby="btnTahunAnggaran">
+                                    @foreach($anggaran as $anggarans)
+                                        <li><a class="dropdown-item" href="#">{{$anggarans->tahun_anggaran}}</a></li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                     <div class="card text-dark bg-light mb-3 text-center">
                                         <div class="card-header"><b>Anggaran Pendapatan</b></div>
                                         <div class="card-body">
-                                            <h3>Rp1.000.000.000,00</h3>
+                                            <h3>Rp{{number_format($anggaran[count($anggaran)-1]->anggaran_pendapatan)}}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +52,7 @@
                                     <div class="card text-dark bg-light mb-3 text-center">
                                         <div class="card-header"><b>Realisasi Pendapatan</b></div>
                                         <div class="card-body">
-                                            <h3>Rp500.000.000,00</h3>
+                                            <h3>Rp{{number_format($anggaran[count($anggaran)-1]->realisasi_pendapatan)}}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@
                                     <div class="card text-dark bg-light mb-3 text-center">
                                         <div class="card-header"><b>Realisasi Belanja</b></div>
                                         <div class="card-body">
-                                            <h3>Rp300.000.000,00</h3>
+                                            <h3>Rp{{number_format($anggaran[count($anggaran)-1]->realisasi_belanja)}}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -76,6 +76,7 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <input type="hidden" id="kategoriAnggaran" value='<?php echo json_encode($kategoriAnggaran) ?>'>
+                                    <input type="hidden" id="detailAnggaran" value='<?php echo json_encode($detailAnggaran) ?>'>
                                     <div id="chartPiePendapatanDesa"></div>
                                 </div>
                                 <div class="col-sm-8">
