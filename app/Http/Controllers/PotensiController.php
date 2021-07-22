@@ -9,6 +9,7 @@ use App\Models\KategoriAnggaran;
 use App\Models\KategoriBelanjaDesa;
 use App\Models\Anggaran;
 use App\Models\DetailAnggaran;
+use App\Models\DetailBelanjaDesa;
 
 class PotensiController extends Controller
 {
@@ -46,6 +47,9 @@ class PotensiController extends Controller
         $kategoriBelanjaDesa = KategoriBelanjaDesa::all();
         $anggaran = Anggaran::all();
         $detailAnggaran = DetailAnggaran::all();
-        return view('potensi.anggaran', ['kategoriAnggaran' => $kategoriAnggaran, 'kategoriBelanjaDesa' => $kategoriBelanjaDesa, 'anggaran' => $anggaran, 'detailAnggaran' => $detailAnggaran]);
+        $detailBelanjaDesa = DetailBelanjaDesa::all();
+
+
+        return view('potensi.anggaran', ['kategoriAnggaran' => $kategoriAnggaran, 'kategoriBelanjaDesa' => $kategoriBelanjaDesa, 'anggaran' => $anggaran, 'detailAnggaran' => $detailAnggaran, 'detailBelanjaDesa' => $detailBelanjaDesa]);
     }
 }

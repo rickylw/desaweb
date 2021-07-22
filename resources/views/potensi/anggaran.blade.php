@@ -26,12 +26,15 @@
                     <div class="card text-white col mb-4">
                         <div class="card-header bg-primary d-flex justify-content-between">
                             <div class="my-auto"><b>APBD Tahun Anggaran</b></div>
-
+                            <input type="hidden" name="anggaran" id='anggaran' value='<?php echo json_encode($anggaran) ?>'>
                             <div class="dropdown">
                                 <button class="btn btn-light dropdown-toggle" type="button" id="btnTahunAnggaran" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{$anggaran[count($anggaran)-1]->tahun_anggaran}}
                                 </button>
-                                <ul class="dropdown-menu" aria-labelledby="btnTahunAnggaran">
+                                <ul class="dropdown-menu" id="dropdown-tahun-anggaran" aria-labelledby="btnTahunAnggaran">
+                                    @if (count($anggaran) == 0)
+                                        <li><a class="dropdown-item" href="#">2022</a></li>
+                                    @endif
                                     @foreach($anggaran as $anggarans)
                                         <li><a class="dropdown-item" href="#">{{$anggarans->tahun_anggaran}}</a></li>
                                     @endforeach
@@ -44,7 +47,7 @@
                                     <div class="card text-dark bg-light mb-3 text-center">
                                         <div class="card-header"><b>Anggaran Pendapatan</b></div>
                                         <div class="card-body">
-                                            <h3>Rp{{number_format($anggaran[count($anggaran)-1]->anggaran_pendapatan)}}</h3>
+                                            <h3 id="anggaranPendapatan" nominal="{{$anggaran[count($anggaran)-1]->anggaran_pendapatan}}">Rp{{number_format($anggaran[count($anggaran)-1]->anggaran_pendapatan)}}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -52,7 +55,7 @@
                                     <div class="card text-dark bg-light mb-3 text-center">
                                         <div class="card-header"><b>Realisasi Pendapatan</b></div>
                                         <div class="card-body">
-                                            <h3>Rp{{number_format($anggaran[count($anggaran)-1]->realisasi_pendapatan)}}</h3>
+                                            <h3 id="realisasiPendapatan" nominal="{{$anggaran[count($anggaran)-1]->realisasi_pendapatan}}">Rp{{number_format($anggaran[count($anggaran)-1]->realisasi_pendapatan)}}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -60,7 +63,7 @@
                                     <div class="card text-dark bg-light mb-3 text-center">
                                         <div class="card-header"><b>Realisasi Belanja</b></div>
                                         <div class="card-body">
-                                            <h3>Rp{{number_format($anggaran[count($anggaran)-1]->realisasi_belanja)}}</h3>
+                                            <h3 id="realisasiBelanja" nominal="{{$anggaran[count($anggaran)-1]->realisasi_belanja}}">Rp{{number_format($anggaran[count($anggaran)-1]->realisasi_belanja)}}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -93,6 +96,8 @@
                         <div class="card-body text-dark">
                             <div class="row">
                                 <div class="col-sm-4">
+                                    <input type="hidden" id="kategoriBelanjaDesa" value='<?php echo json_encode($kategoriBelanjaDesa) ?>'>
+                                    <input type="hidden" id="detailBelanjaDesa" value='<?php echo json_encode($detailBelanjaDesa) ?>'>
                                     <div id="chartPieBelanjaDesa"></div>
                                 </div>
                                 <div class="col-sm-8">

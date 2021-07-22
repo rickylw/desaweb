@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('beranda.index');
-});
+})->name('beranda');
 
 Route::get('/berita/detail', [App\Http\Controllers\BeritaController::class, 'tampilDetail'])->name('berita.detail');
 
