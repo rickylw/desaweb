@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'tampilLogin'])->name('login.index');
+Route::post('/proses-login', [App\Http\Controllers\AuthController::class, 'prosesLogin'])->name('login');
+Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::get('/register', [App\Http\Controllers\AuthController::class, 'tampilRegister'])->name('register');
+Route::post('/register/simpan', [App\Http\Controllers\AuthController::class, 'simpanRegister'])->name('register.simpan');
+
 Route::get('/', [App\Http\Controllers\BeritaController::class, 'tampilBeranda'])->name('beranda');
 
 Route::get('/berita/detail', [App\Http\Controllers\BeritaController::class, 'tampilDetail'])->name('berita.detail');

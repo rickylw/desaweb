@@ -33,7 +33,7 @@
 
           <li class="dropdown"><a href="#"><span>Umum</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="about.html">Register</a></li>
+              <li><a href="{{route('register')}}">Register</a></li>
               <li><a href="{{route('galeri')}}">Galeri</a></li>
             </ul>
           </li>
@@ -41,7 +41,11 @@
           <li class="dropdown"><a href="{{route('informasi-lain')}}"><span>Informasi Lain</span></a>
           </li>
 
-          <li><a href="index.html">Login</a></li>
+          @if(session('login'))
+            <li><a href="{{route('logout')}}">Logout</a></li>
+          @else
+            <li><a href="{{route('login.index')}}">Login</a></li>
+          @endif
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
