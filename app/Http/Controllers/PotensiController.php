@@ -10,6 +10,7 @@ use App\Models\KategoriBelanjaDesa;
 use App\Models\Anggaran;
 use App\Models\DetailAnggaran;
 use App\Models\DetailBelanjaDesa;
+use App\Models\ProdukUnggulan;
 
 class PotensiController extends Controller
 {
@@ -51,5 +52,15 @@ class PotensiController extends Controller
 
 
         return view('potensi.anggaran', ['kategoriAnggaran' => $kategoriAnggaran, 'kategoriBelanjaDesa' => $kategoriBelanjaDesa, 'anggaran' => $anggaran, 'detailAnggaran' => $detailAnggaran, 'detailBelanjaDesa' => $detailBelanjaDesa]);
+    }
+
+    public function tampilProdukUnggulan(){
+        $produkUnggulan = ProdukUnggulan::paginate(6);
+        return view('potensi.produk-unggulan', ['produkUnggulan' => $produkUnggulan]);
+    }
+
+    public function detailProdukUnggulan($id){
+        $produkUnggulan = ProdukUnggulan::where('id', $id)->first();
+        return view('potensi.detail-produk-unggulan', ['produkUnggulan' => $produkUnggulan]);
     }
 }

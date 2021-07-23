@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Berita extends Model
+class ProdukUnggulan extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
-    protected $table = 'tbl_berita';
+    protected $table = 'tbl_produk_unggulan';
     protected $primaryKey = 'id';
 }

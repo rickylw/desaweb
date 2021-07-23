@@ -29,7 +29,11 @@
                             <input type="hidden" name="anggaran" id='anggaran' value='<?php echo json_encode($anggaran) ?>'>
                             <div class="dropdown">
                                 <button class="btn btn-light dropdown-toggle" type="button" id="btnTahunAnggaran" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {{$anggaran[count($anggaran)-1]->tahun_anggaran}}
+                                    @if (count($anggaran) == 0)
+                                        <li><a class="dropdown-item" href="#">2022</a></li>
+                                    @else
+                                        {{$anggaran[count($anggaran)-1]->tahun_anggaran}}
+                                    @endif
                                 </button>
                                 <ul class="dropdown-menu" id="dropdown-tahun-anggaran" aria-labelledby="btnTahunAnggaran">
                                     @if (count($anggaran) == 0)

@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('beranda.index');
-})->name('beranda');
+Route::get('/', [App\Http\Controllers\BeritaController::class, 'tampilBeranda'])->name('beranda');
 
 Route::get('/berita/detail', [App\Http\Controllers\BeritaController::class, 'tampilDetail'])->name('berita.detail');
 
@@ -28,7 +26,9 @@ Route::get('/organisasi/visi-misi', [App\Http\Controllers\OrganisasiController::
 Route::get('/potensi/kependudukan', [App\Http\Controllers\PotensiController::class, 'tampilKependudukan'])->name('potensi.kependudukan');
 Route::get('/potensi/anggaran', [App\Http\Controllers\PotensiController::class, 'tampilAnggaran'])->name('potensi.anggaran');
 
-Route::get('/potensi/produk-unggulan', [App\Http\Controllers\BeritaController::class, 'tampilProdukUnggulan'])->name('potensi.produk-unggulan');
+Route::get('/potensi/produk-unggulan', [App\Http\Controllers\PotensiController::class, 'tampilProdukUnggulan'])->name('potensi.produk-unggulan');
+Route::get('/potensi/produk-unggulan/{id}', [App\Http\Controllers\PotensiController::class, 'detailProdukUnggulan'])->name('potensi.produk-unggulan.detail');
+
 Route::get('/informasi-lain', [App\Http\Controllers\BeritaController::class, 'tampilInformasiLain'])->name('informasi-lain');
 Route::get('/galeri', [App\Http\Controllers\BeritaController::class, 'tampilGaleri'])->name('galeri');
 Route::get('/galeri/detail', [App\Http\Controllers\BeritaController::class, 'tampilDetailGaleri'])->name('galeri.detail');
