@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         if($masyarakat){
             if(md5($inputs['password']) == $masyarakat->password){
-                session(['login' => true, 'name' => $masyarakat->nama]);
+                session(['login' => true, 'id' => $masyarakat->id]);
                 return redirect()->route('beranda');
             }
         }

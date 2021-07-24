@@ -46,7 +46,7 @@
               </div>
               @endforeach
             </div>
-            <div class="text-center">
+            <div class="text-center mt-4">
                 <a href="{{$produkUnggulan->previousPageUrl()}}">
                     <i class="bx bx-left-arrow-alt"></i>
                 </a>

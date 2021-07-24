@@ -21,7 +21,8 @@ Route::post('/register/simpan', [App\Http\Controllers\AuthController::class, 'si
 
 Route::get('/', [App\Http\Controllers\BeritaController::class, 'tampilBeranda'])->name('beranda');
 
-Route::get('/berita/detail', [App\Http\Controllers\BeritaController::class, 'tampilDetail'])->name('berita.detail');
+Route::get('/berita/detail/{id}', [App\Http\Controllers\BeritaController::class, 'tampilDetailBerita'])->name('berita.detail');
+Route::post('/berita/komentar/{id}', [App\Http\Controllers\BeritaController::class, 'simpanKomentar'])->name('berita.komentar');
 
 Route::get('/profil/sejarah', [App\Http\Controllers\ProfilController::class, 'tampilSejarah'])->name('profil.sejarah');
 Route::get('/profil/wilayah-geografis', [App\Http\Controllers\ProfilController::class, 'tampilWilayahGeografis'])->name('profil.wilayah-geografis');

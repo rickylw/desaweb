@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-between align-items-center">
             <h2>Sejarah</h2>
             <ol>
-                <li><a href="index.html">Profil</a></li>
+                <li>Profil</li>
                 <li>Sejarah</li>
             </ol>
             </div>
@@ -38,51 +38,67 @@
                         <div class="underline-title">
                             <h3>Populer</h3>
                         </div>
-                        @for($i = 0; $i < 3; $i++)
-                        <div class="card mb-3 border-0">
-                            <div class="row g-0">
-                            <div class="col-md-6">
-                                <img src="{{asset('assets/img/slide/slide-2.jpg')}}" class="img-fluid" alt="...">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card-body pt-0">
-                                <h6 class="card-title">Berita ke-{{$i+1}}</h6>
-                                <ul class="list-description px-0">
-                                    <li class="d-flex align-items-center"><small><i class="bi bi-clock" id="item-description"></i> 19 Juli 2021</small></li>
-                                    <li class="d-flex align-items-center">
-                                    <small><i class="bi bi-person" id="item-description"></i> 12 Like</small>
-                                    </li>
-                                </ul>
+                        @foreach($beritaPopuler as $v)
+                            <div class="card mb-3 border-0">
+                                <div class="row g-0">
+                                <div class="col-md-6">
+                                    <a href="{{route('berita.detail', $v->id)}}">
+                                      <img src="{{asset($v->foto)}}" class="img-fluid" alt="...">
+                                    </a>
                                 </div>
-                            </div>
-                            </div>
-                        </div>
-                        @endfor
+                                <div class="col-md-6">
+                                    <div class="card-body pt-0">
+                                    <h6 class="card-title">{{$v->judul}}</h6>
+                                    <ul class="list-description px-0">
+                                        <li class="d-flex align-items-center"><small><i class="bi bi-clock" id="item-description"></i> {{date('d M Y', strtotime($v->dibuat))}}</small></li>
+                                        <li class="d-flex align-items-center">
+                                        <small><i class="bi bi-person" id="item-description"></i> 
+                                            @if ($v->jumlah_like == null)
+                                                0
+                                            @else
+                                                {{$v->jumlah_like}}
+                                            @endif
+                                            Like</small>
+                                        </li>
+                                    </ul>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>                        
+                        @endforeach
                     </div>
                     <div>
                         <div class="underline-title">
                             <h3>Informasi Lainnya</h3>
                         </div>
-                        @for($i = 0; $i < 3; $i++)
-                        <div class="card mb-3 border-0">
-                            <div class="row g-0">
-                            <div class="col-md-6">
-                                <img src="{{asset('assets/img/slide/slide-2.jpg')}}" class="img-fluid" alt="...">
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card-body pt-0">
-                                <h6 class="card-title">Berita ke-{{$i+1}}</h6>
-                                <ul class="list-description px-0">
-                                    <li class="d-flex align-items-center"><small><i class="bi bi-clock" id="item-description"></i> 19 Juli 2021</small></li>
-                                    <li class="d-flex align-items-center">
-                                    <small><i class="bi bi-person" id="item-description"></i> 12 Like</small>
-                                    </li>
-                                </ul>
+                        @foreach($beritaInformasiLainnya as $v)
+                            <div class="card mb-3 border-0">
+                                <div class="row g-0">
+                                <div class="col-md-6">
+                                    <a href="{{route('berita.detail', $v->id)}}">
+                                      <img src="{{asset($v->foto)}}" class="img-fluid" alt="...">
+                                    </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card-body pt-0">
+                                    <h6 class="card-title">{{$v->judul}}</h6>
+                                    <ul class="list-description px-0">
+                                        <li class="d-flex align-items-center"><small><i class="bi bi-clock" id="item-description"></i> {{date('d M Y', strtotime($v->dibuat))}}</small></li>
+                                        <li class="d-flex align-items-center">
+                                        <small><i class="bi bi-person" id="item-description"></i> 
+                                            @if ($v->jumlah_like == null)
+                                                0
+                                            @else
+                                                {{$v->jumlah_like}}
+                                            @endif
+                                            Like</small>
+                                        </li>
+                                    </ul>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
-                            </div>
-                        </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
             </div>
