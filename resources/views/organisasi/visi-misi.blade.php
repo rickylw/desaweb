@@ -28,7 +28,7 @@
                     <div class="underline-title">
                         <h3>Visi Misi</h3>
                     </div>
-                    <img src="{{$PATH.$organisasi->visi_misi}}" class="img-fluid center-image mb-4" alt="...">
+                    <img src="{{$PATH.$organisasi->gambar_visi_misi}}" class="img-fluid center-image mb-4" alt="...">
                     <div class="isi-berita">
                         <?php echo $organisasi->visi_misi ?>                
                     </div>
