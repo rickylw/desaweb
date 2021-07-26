@@ -2235,6 +2235,14 @@ section {
   -webkit-box-orient: vertical;
 }
 
+.text-ellipsis-1 {
+  -webkit-line-clamp: 1;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
 .isi-berita{
   text-align: justify;
 }
@@ -2248,7 +2256,7 @@ section {
   color: #BBBBBB;
 }
 
-#icon-like {
+#tombol-dislike {
   color: #d13232;
 }
 

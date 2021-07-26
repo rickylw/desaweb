@@ -1,5 +1,6 @@
 <x-dashboard>
     @section("content")
+    <?php $PATH = 'http://127.0.0.1:8000/' ?>
         <main id="main">
 
             <!-- ======= Breadcrumbs ======= -->
@@ -24,7 +25,7 @@
                 <div class="col-lg-8" data-aos="fade-right">
                     
                     <h3>{{$produkUnggulan->nama}}</h3>
-                    <img src="{{asset($produkUnggulan->foto)}}" class="img-fluid center-image mb-4" alt="...">
+                    <img src="{{$PATH.$produkUnggulan->foto}}" class="img-fluid center-image mb-4" alt="...">
                     <div class="isi-berita">
                         <?php echo $produkUnggulan->deskripsi ?>
                     </div>
@@ -88,5 +89,14 @@
         </section><!-- End Blog Section -->
 
     </main><!-- End #main -->
+    @endsection
+
+    @section('content-contact')        
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="{{$website->twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="{{$website->facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="{{$website->instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="{{$website->youtube}}" class="youtube"><i class="bx bxl-youtube"></i></a>
+      </div>
     @endsection
 </x-dashboard>

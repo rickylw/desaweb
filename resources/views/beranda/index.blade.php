@@ -1,5 +1,7 @@
 <x-dashboard>
     @section("content")
+
+    <?php $PATH = 'http://127.0.0.1:8000/' ?>
     <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -7,7 +9,7 @@
       <div class="carousel-inner" role="listbox">
 
         @foreach ($beritaUtama as $k=>$v)
-          <div class="carousel-item <?php echo ($k == 0) ? 'active' : '' ?>" style="background-image: url({{asset($v->foto)}});">
+          <div class="carousel-item <?php echo ($k == 0) ? 'active' : '' ?>" style="background-image: url({{$PATH.$v->foto}});">
             <div class="carousel-container">
               <div class="carousel-content animate__animated animate__fadeInUp">
                 <h2>{{$v->judul}}</h2>
@@ -53,7 +55,7 @@
                 @foreach($beritaTerbaru as $v)
                 <div class="col">
                   <div class="card h-100">
-                    <img src="{{asset($v->foto)}}" height="200px" class="card-img-top" alt="...">
+                    <img src="{{$PATH.$v->foto}}" height="200px" class="card-img-top" alt="...">
                     <div class="card-body">
                       <h5 class="card-title mb-0">{{$v->judul}}</h5>
                       <ul class="list-description list-inline">
@@ -114,7 +116,7 @@
                   <div class="row g-0">
                     <div class="col-md-6">
                       <a href="{{route('berita.detail', $v->id)}}">
-                        <img src="{{asset($v->foto)}}" class="img-fluid" alt="...">
+                        <img src="{{$PATH.$v->foto}}" class="img-fluid" alt="...">
                       </a>
                     </div>
                     <div class="col-md-6">
@@ -150,7 +152,7 @@
                     <div class="row g-0">
                       <div class="col-md-6">
                         <a href="{{route('berita.detail', $v->id)}}">
-                          <img src="{{asset($v->foto)}}" class="img-fluid" alt="...">
+                          <img src="{{$PATH.$v->foto}}" class="img-fluid" alt="...">
                         </a>
                       </div>
                       <div class="col-md-6">
@@ -181,5 +183,14 @@
     </section>
 
 </main><!-- End #main -->
+    @endsection
+
+    @section('content-contact')        
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="{{$website->twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="{{$website->facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="{{$website->instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="{{$website->youtube}}" class="youtube"><i class="bx bxl-youtube"></i></a>
+      </div>
     @endsection
 </x-dashboard>

@@ -128,4 +128,13 @@
     @section("contentjs")
         <script type="text/javascript" src="{{asset('assets/js/kependudukan.js')}}"></script>
     @endsection
+
+    @section('content-contact')        
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="{{$website->twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="{{$website->facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="{{$website->instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="{{$website->youtube}}" class="youtube"><i class="bx bxl-youtube"></i></a>
+      </div>
+    @endsection
 </x-dashboard>

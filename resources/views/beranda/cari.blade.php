@@ -9,10 +9,7 @@
         <div class="container">
 
             <div class="d-flex justify-content-between align-items-center">
-            <h2>Informasi Lain</h2>
-            <ol>
-                <li>Informasi Lain</li>
-            </ol>
+            <h2>Pencarian kata : {{$kataKunci}}</h2>
             </div>
 
         </div>
@@ -26,12 +23,8 @@
 
         <div class="row content">
           <div class="col-lg-12" data-aos="fade-right">
-              
-            <div class="underline-title">
-                <h3>Informasi Lain</h3>
-            </div>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                @foreach($beritaInformasiLainnya as $v)
+                @foreach($berita as $v)
                   <div class="col">
                     <div class="card h-100">
                       <img src="{{$PATH.$v->foto}}" height="200px" class="card-img-top" alt="...">
@@ -73,13 +66,13 @@
             </div>
           </div>
           <div class="text-center mt-4">
-              <a href="{{$beritaInformasiLainnya->previousPageUrl()}}">
+              <a href="{{$berita->previousPageUrl()}}">
                   <i class="bx bx-left-arrow-alt"></i>
               </a>
-              @for($i=1;$i<=$beritaInformasiLainnya->lastPage();$i++)
-                  <a href="{{$beritaInformasiLainnya->url($i)}}">{{$i}}</a>
+              @for($i=1;$i<=$berita->lastPage();$i++)
+                  <a href="{{$berita->url($i)}}">{{$i}}</a>
               @endfor
-              <a href="{{$beritaInformasiLainnya->nextPageUrl()}}">
+              <a href="{{$berita->nextPageUrl()}}">
                   <i class="bx bx-right-arrow-alt"></i>
               </a>
           </div>

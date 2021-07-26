@@ -52,8 +52,8 @@
       </nav><!-- .navbar -->
 
       <div class="header-social-links d-flex">
-        <form class="d-flex mx-2">
-            <input class="form-control" type="search" placeholder="Pencarian" aria-label="Search">
+        <form class="d-flex mx-2" action="{{route('berita.cari')}}" method="GET">
+            <input class="form-control" type="search" placeholder="Pencarian" aria-label="Search" name="kataKunci">
             <button class="btn btn-success mx-1" type="submit">Cari</button>
         </form>
       </div>

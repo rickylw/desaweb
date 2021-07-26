@@ -1,6 +1,7 @@
 <x-dashboard>
     @section("content")
 
+    <?php $PATH = 'http://127.0.0.1:8000/' ?>
     <main id="main">
 
             <!-- ======= Breadcrumbs ======= -->
@@ -34,7 +35,7 @@
               @foreach($produkUnggulan as $v)
               <div class="col">
                 <div class="card h-100">
-                  <img src="{{asset($v->foto)}}" class="card-img-top" height="200px">
+                  <img src="{{$PATH.$v->foto}}" class="card-img-top" height="200px">
                   <div class="card-body">
                     <h5 class="card-title mb-0">{{$v->nama}}</h5>
                     <div class="card-text row-4 text-ellipsis-4" style="text-align:justify"><?php echo $v->deskripsi ?></div>
@@ -62,5 +63,14 @@
 
       </div>
     </section>
+    @endsection
+
+    @section('content-contact')        
+      <div class="social-links text-center text-md-right pt-3 pt-md-0">
+        <a href="{{$website->twitter}}" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="{{$website->facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="{{$website->instagram}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="{{$website->youtube}}" class="youtube"><i class="bx bxl-youtube"></i></a>
+      </div>
     @endsection
 </x-dashboard>

@@ -19,8 +19,10 @@ class AuthController extends Controller
 
         $masyarakat = Masyarakat::where('username', $inputs['username'])->first();
 
+        //Cek apakah akun ditemukan
         if($masyarakat){
             if(md5($inputs['password']) == $masyarakat->password){
+                //Menyimpan data login ke session
                 session(['login' => true, 'id' => $masyarakat->id]);
                 return redirect()->route('beranda');
             }
@@ -29,6 +31,7 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request){
+        //Membersihkan session
         $request->session()->flush();
         return redirect()->route('login.index');
     }

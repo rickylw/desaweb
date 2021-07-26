@@ -23,6 +23,8 @@ Route::get('/', [App\Http\Controllers\BeritaController::class, 'tampilBeranda'])
 
 Route::get('/berita/detail/{id}', [App\Http\Controllers\BeritaController::class, 'tampilDetailBerita'])->name('berita.detail');
 Route::post('/berita/komentar/{id}', [App\Http\Controllers\BeritaController::class, 'simpanKomentar'])->name('berita.komentar');
+Route::post('/berita/like/{id}', [App\Http\Controllers\BeritaController::class, 'simpanLike'])->name('berita.like');
+Route::get('/berita/cari', [App\Http\Controllers\BeritaController::class, 'cariBerita'])->name('berita.cari');
 
 Route::get('/profil/sejarah', [App\Http\Controllers\ProfilController::class, 'tampilSejarah'])->name('profil.sejarah');
 Route::get('/profil/wilayah-geografis', [App\Http\Controllers\ProfilController::class, 'tampilWilayahGeografis'])->name('profil.wilayah-geografis');
@@ -37,5 +39,6 @@ Route::get('/potensi/produk-unggulan', [App\Http\Controllers\PotensiController::
 Route::get('/potensi/produk-unggulan/{id}', [App\Http\Controllers\PotensiController::class, 'detailProdukUnggulan'])->name('potensi.produk-unggulan.detail');
 
 Route::get('/informasi-lain', [App\Http\Controllers\BeritaController::class, 'tampilInformasiLain'])->name('informasi-lain');
-Route::get('/galeri', [App\Http\Controllers\BeritaController::class, 'tampilGaleri'])->name('galeri');
-Route::get('/galeri/detail', [App\Http\Controllers\BeritaController::class, 'tampilDetailGaleri'])->name('galeri.detail');
+
+Route::get('/galeri', [App\Http\Controllers\GaleriController::class, 'tampilGaleri'])->name('galeri');
+Route::get('/galeri/detail/{id}', [App\Http\Controllers\GaleriController::class, 'tampilDetailGaleri'])->name('galeri.detail');
