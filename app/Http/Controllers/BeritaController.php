@@ -20,6 +20,7 @@ class BeritaController extends Controller
                     ->leftJoin(DB::raw('(select *, count(id) as jumlah_like from tbl_like where status = 1 group by id_berita) tbl_like'), 'tbl_berita.id', '=', 'tbl_like.id_berita')
                     ->leftJoin(DB::raw('(select *, count(id) as jumlah_komentar from tbl_komentar group by id_berita) komentar'), 'tbl_berita.id', '=', 'komentar.id_berita')
                     ->select(DB::raw('tbl_berita.*, komentar.jumlah_komentar, tbl_like.jumlah_like'))
+                    ->where('tbl_berita.is_actived', 1)
                     ->groupBy('tbl_berita.id');
 
         //Mencari berita dengan kategori informasi lain
@@ -54,6 +55,7 @@ class BeritaController extends Controller
                     ->leftJoin(DB::raw('(select *, count(id) as jumlah_like from tbl_like where status = 1 group by id_berita) tbl_like'), 'tbl_berita.id', '=', 'tbl_like.id_berita')
                     ->leftJoin(DB::raw('(select *, count(id) as jumlah_komentar from tbl_komentar group by id_berita) komentar'), 'tbl_berita.id', '=', 'komentar.id_berita')
                     ->select(DB::raw('tbl_berita.*, komentar.jumlah_komentar, tbl_like.jumlah_like'))
+                    ->where('tbl_berita.is_actived', 1)
                     ->groupBy('tbl_berita.id');
 
         //InformasiLainnya
@@ -157,6 +159,7 @@ class BeritaController extends Controller
                     ->leftJoin(DB::raw('(select *, count(id) as jumlah_like from tbl_like where status = 1 group by id_berita) tbl_like'), 'tbl_berita.id', '=', 'tbl_like.id_berita')
                     ->leftJoin(DB::raw('(select *, count(id) as jumlah_komentar from tbl_komentar group by id_berita) komentar'), 'tbl_berita.id', '=', 'komentar.id_berita')
                     ->select(DB::raw('tbl_berita.*, komentar.jumlah_komentar, tbl_like.jumlah_like'))
+                    ->where('tbl_berita.is_actived', 1)
                     ->groupBy('tbl_berita.id');
 
         //InformasiLainnya
@@ -182,6 +185,7 @@ class BeritaController extends Controller
                     ->leftJoin(DB::raw('(select *, count(id) as jumlah_komentar from tbl_komentar group by id_berita) komentar'), 'tbl_berita.id', '=', 'komentar.id_berita')
                     ->select(DB::raw('tbl_berita.*, komentar.jumlah_komentar, tbl_like.jumlah_like'))
                     ->groupBy('tbl_berita.id')
+                    ->where('tbl_berita.is_actived', 1)
                     ->whereRaw('judul like "%'.$kataKunci.'%" or isi like "%'.$kataKunci.'%"')
                     ->paginate(6);
 
